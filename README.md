@@ -3,5 +3,5 @@
 <p> The Depth first traversal(O(n)) and Depth first travesal algorithms(O(n)) were implemented</p>
 <p>The problems such as height(O(n)),diameter(O(n^2)),count no of nodes(O(n)) were solved</p>
 <div>
-  By Achyuthanwesh vanga
+  By Achyuthanwesh Vanga
 </div>
