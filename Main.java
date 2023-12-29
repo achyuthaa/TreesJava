@@ -15,5 +15,12 @@ import TreesJava.BinaryTree;
             BinaryTree.Postorder(rootNode);
             System.out.println();
             BinaryTree.Levelorder(rootNode);
+            System.out.println(BinaryTree.CountNodes(rootNode));
+            System.out.println(BinaryTree.Sumnodes(rootNode));
+            System.out.println(BinaryTree.Heightnodes(rootNode));
+            System.out.println(BinaryTree.Diameternodes(rootNode));
+
+
+
         }
     }

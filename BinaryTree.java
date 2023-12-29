@@ -54,6 +54,49 @@ public class BinaryTree {
         Postorder(root.right);
         System.out.print(root.data);
         }
+        public static int CountNodes(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftnodes = CountNodes(root.left);
+        int rightnodes = CountNodes(root.right);
+        return leftnodes+rightnodes+1;
+        }
+
+        public static int Sumnodes(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftnodes = Sumnodes(root.left);
+        int ridhtnodes = Sumnodes(root.right);
+
+        return leftnodes+root.data+ridhtnodes;
+
+        }
+
+        public static int Heightnodes(Node root){
+           if(root==null){
+               return 0;
+           }
+           int leftheight = Heightnodes(root.left);
+           int rightheight = Heightnodes(root.right);
+
+           int height = Math.max(leftheight,rightheight)+1;
+           return height;
+        }
+
+        public static int Diameternodes(Node root){
+        if(root==null){
+            return 0;
+        }
+        int diam1 = Diameternodes(root.left);
+        int diam2 = Diameternodes(root.right);
+        int height = Heightnodes(root.left)+Heightnodes(root.right) + 1;
+
+        return Math.max(height,Math.max(diam1,diam2));
+        }
+
+
         public static void Levelorder(Node root){
         if(root==null){
             return;
