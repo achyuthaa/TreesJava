@@ -29,6 +29,23 @@ public class BinaryTree {
                 newNode.right = buildTree(nodes);
                 return newNode;
             }
+            public static Node buildBST(Node root,int valu){
+
+                if(root==null){
+                    root = new Node(valu);
+                    return root;
+                }
+                if(root.data<valu){
+                    root.right = buildBST(root.right,valu);
+                }
+                if(root.data>valu){
+                    root.left = buildBST(root.left,valu);
+                }
+                return root;
+
+
+            }
+
         }
         public static void Preorder(Node root){
         if(root == null){
@@ -94,6 +111,33 @@ public class BinaryTree {
         int height = Heightnodes(root.left)+Heightnodes(root.right) + 1;
 
         return Math.max(height,Math.max(diam1,diam2));
+        }
+        static class Diam{
+        int height;
+        int diameter;
+        Diam(int height,int diameter) {
+            this.height = height;
+            this.diameter = diameter;
+        }
+
+        }
+
+
+        public static Diam FastDiameternodes(Node root){
+            if(root == null){
+                 return new Diam(0,0);
+            }
+             Diam left = FastDiameternodes(root.left);
+             Diam right = FastDiameternodes(root.right);
+             int myheight = Math.max(left.height,right.height)+1;
+
+             int d1 = left.diameter;
+             int d2 = right.diameter;
+             int d3 = left.height + right.height +1;
+
+             int dia = Math.max(Math.max(d1,d2),d3);
+             Diam info = new Diam(myheight,dia);
+             return info;
         }
 
 
