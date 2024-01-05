@@ -47,6 +47,41 @@ public class BinaryTree {
             }
 
         }
+        public static Node deleteBST(Node root, int value) {
+
+            if (root.data > value) {
+                root.left = deleteBST(root.left, value);
+            }
+            if (root.data < value) {
+                root.right = deleteBST(root.right, value);
+            } else {
+                //case 1
+                if (root.left == null && root.right == null) {
+                    return null;
+                }
+                //case 2
+                if (root.left == null) {
+                    return root.right;
+                }
+                if (root.right == null) {
+                    return root.left;
+                }
+                //case 3
+                Node IS = Inordersuccessor(root.right);
+                root.data = IS.data;
+                root.right = deleteBST(root.right, IS.data);
+
+            }
+            return root;
+        }
+        public static Node Inordersuccessor(Node root){
+            while(root.left!=null){
+                root.left = Inordersuccessor(root.right);
+            }
+           return root;
+            }
+
+
         public static void Preorder(Node root){
         if(root == null){
             return;

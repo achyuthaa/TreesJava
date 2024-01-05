@@ -28,6 +28,9 @@ import TreesJava.BinaryTree;
             }
             //System.out.println();
             BinaryTree.Inorder(root);
+            BinaryTree.deleteBST(root,4);
+            System.out.println();
+            BinaryTree.Inorder(root);
 
 
 
